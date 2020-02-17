@@ -71,7 +71,7 @@ Chk_Delete($sql,'ลบข้อมูลเรียบร้อย');
                                                     <th width="auto"><div align="center">ชื่อ-นามสกุล</div></th>
                                                     <th width="auto"><div align="center">อีเมลล์</div></th>
                                                     <th width="auto"><div align="center">เบอร์โทรศัพท์</div></th>
-                                                    <th width="auto"><div align="center">ที่อยู้</div></th>
+                                                    <th width="auto"><div align="center">ที่อยู่</div></th>
 													<th width="auto"><div align="center">วันที่สร้าง</div></th>
                                                     <th width="auto"><div align="center">สิทธิ์การใช้งาน</div></th>
                                                     <th width="auto"><div align="center">จัดการ</div></th>

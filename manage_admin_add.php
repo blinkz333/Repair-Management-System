@@ -3,9 +3,8 @@
 <?php
 //insert data
 if($_REQUEST['admin']=='insert'){
-$MemIdCheck = date('dmyHis'); 
 //check data ซ้ำ โดย check ตามชื่อฟิลด์ที่กำหนด ถ้า ซ้ำกันจะไม่สามารถเพิ่มข้อมูลได้
-$sql = $conn->query("select * from member where Mem_User = '$MemIdCheck'")or die (mysqli_error());
+$sql = $conn->query("select * from member where Mem_User = '$_REQUEST[username]'")or die (mysqli_error());
 
 if($sql->num_rows>0){
 
@@ -15,12 +14,11 @@ Chk_Duplicate ($sql);
 }
 else {
 
-$createDate = date('dmyHis'); 
 
 //เพิ่มข้อมูลลง table ที่กำหนด โดยให้ชื่อฟิลด์ใน table ใน db = ค่าที่รับมา
 $sql = $conn->query("insert member set Mem_User = '$_REQUEST[username]',Mem_Pass = '$_REQUEST[password]',
 Mem_Name = '$_REQUEST[name]',Mem_Email = '$_REQUEST[email]',Mem_Tel = '$_REQUEST[tel]',
-Mem_Address = '$_REQUEST[address]',Mem_Date = '$createDate',Mem_Permission = '1',
+Mem_Address = '$_REQUEST[address]',Mem_Date = now(),Mem_Permission = '1',
 Mem_Status = '1'");
 
 
