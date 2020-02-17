@@ -41,6 +41,9 @@ Chk_Login($_SESSION['ses_admin_id'],'index.php');
 <script type="text/javascript" src="plugins/jquerydatepicker/jquery-ui-timepicker-addon.js"></script>
 <script type="text/javascript" src="plugins/jquerydatepicker/jquery-ui-sliderAccess.js"></script>
 
+<!-- graph -->
+<script src="js/Chart.bundle.js"></script>
+
 <!-- datepicker-->
 <script type="text/javascript">
     
