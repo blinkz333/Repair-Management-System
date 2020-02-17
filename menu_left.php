@@ -24,7 +24,7 @@ if($_REQUEST['logout']=='chk'){
                     </li>
                     
                     <li >
-                        <a href="main.php"><i class="fa fa-dashboard fa-fw"></i>หน้าหลัก</a>
+                        <a href="main.php"><i class="fa fa-home fa-fw"></i>หน้าหลัก</a>
                     </li>
 					
 					<li>
@@ -37,14 +37,11 @@ if($_REQUEST['logout']=='chk'){
                     </li>
 
                     <li>
-                    <a href="#"><i class="fa fa-save fa-fw"></i> สมาชิก<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-user fa-fw"></i> ผู้ดูแลระบบ<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                        
                             <li>
-                                <a href="manage_product.php"> - รายชื่อสมาชิก</a>
-                            </li>
-                            <li>
-                                <a href="manage_product.php"> - สมัครสมาชิก</a>
+                                <a href="manage_admin.php"> - ข้อมูลผู้ดูแลระบบ</a>
                             </li>
                            
                         </ul>

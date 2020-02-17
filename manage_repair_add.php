@@ -52,7 +52,7 @@ Chk_Insert($sql,'เพิ่มข้อมูลเรียบร้อย','
                 <!-- Page Header -->
                 <br/>
                 <div class="col-lg-12">
-                    <div class="panel panel-body panel-primary alert-danger"><h3><font color="#428bca">ยินดีต้อนรับสู่ระบบจัดการ <?php echo $title_web;?></font></h3></div>
+                    <div class="panel panel-body panel-primary alert-danger"><h3><font color="#333333">ยินดีต้อนรับสู่ระบบจัดการ <?php echo $title_web;?></font></h3></div>
                 </div>
                 <!--End Page Header -->
             </div>
@@ -63,7 +63,7 @@ Chk_Insert($sql,'เพิ่มข้อมูลเรียบร้อย','
                     <!--Simple table example -->
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <i class="fa fa-user fa-fw"></i> เพิ่มข้อมูลการซ่อม
+                            <i class="fa fa-edit fa-fw"></i> เพิ่มข้อมูลการซ่อม
 
                         </div>
 

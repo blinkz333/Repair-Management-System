@@ -1968,6 +1968,15 @@ label {
     font-weight: bold;
 }
 
+.fontLabel {
+    font-size: 25;
+}
+
+.fontValue {
+    font-size: 20;
+    font-weight: normal;
+}
+
 input[type="search"] {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -5960,13 +5969,13 @@ a.list-group-item-danger.active:focus {
 }
 
 .panel-primary {
-    border-color: #428bca;
+    border-color: #333333;
 }
 
 .panel-primary>.panel-heading {
     color: #fff;
-    background-color: #428bca;
-    border-color: #428bca;
+    background-color: #333333;
+    border-color: #333333;
     font-size: 18;
 }
 

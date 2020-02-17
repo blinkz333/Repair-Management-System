@@ -6,7 +6,6 @@ $nowCase = $conn->query("SELECT COUNT(*) FROM orders WHERE orders.Ord_RepairDate
 $row = $nowCase->num_rows;  
 
 
-echo $row;
 
 ?>
 
@@ -25,7 +24,7 @@ echo $row;
                 <!-- Page Header -->
                 <br/>
                 <div class="col-lg-12">
-                    <div class="panel panel-body panel-primary alert-danger"><h3><font color="#428bca">ยินดีต้อนรับสู่ <?php echo $title_web;?> , จำนวนการซ่อมทั้งหมดวันนี้ : <?php echo $row;?> เคส</font></h3></div>
+                    <div class="panel panel-body panel-primary alert-danger"><h3><font color="#333333">ยินดีต้อนรับสู่ <?php echo $title_web;?> , จำนวนการซ่อมทั้งหมดวันนี้ : <?php echo $row;?> เคส</font></h3></div>
                 </div>
                 <!--End Page Header -->
             </div>

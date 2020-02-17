@@ -49,7 +49,7 @@ else if($show['Ord_Status']==4){$status =  '<span class=text-danger>ยกเล
       <div class="col-sm-4 invoice-col">
       <strong>ติดตามสถานะการซ่อม</strong>
         <address>
-        <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http%3A%2F%2F172.20.10.2/project-nawa%2F&choe=UTF-8" title="Link to Google.com" />
+        <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http%3A%2F%2F<?php echo $_REQUEST['status'];?>%2F&choe=UTF-8" title="Link to Google.com" />
         </address>
       </div>
     </div>

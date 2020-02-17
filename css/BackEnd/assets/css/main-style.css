@@ -81,14 +81,14 @@ Author: http://binarytheme.com
 }
 
 #side-menu {
-    background-color: #428bca;
+    background-color: #333333;
     font-family: 'thaisansliter1', Arial, Helvetica, sans-serif;
     font-size: 19px;
 }
 
 #side-menu a {
     color: #fff;
-    border-bottom: 1px solid #84B899 !important;
+    border-bottom: 1px solid #ffffff !important;
     height: 55px;
 }
 
@@ -130,7 +130,7 @@ Author: http://binarytheme.com
 /* tap nvbar Section */
 
 #navbar {
-    background-color: #428bca;
+    background-color: #333333;
 }
 
 .navbar-brand {
@@ -156,7 +156,7 @@ Author: http://binarytheme.com
 }
 
 .body-Login-back {
-    background-color: #3b46f6;
+    background-color: #333333;
 }
 
 .margin-tips {

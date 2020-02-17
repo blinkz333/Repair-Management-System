@@ -40,7 +40,7 @@ if($_REQUEST['admin']=='status'){
                 <!-- Page Header -->
                 <br/>
                 <div class="col-lg-12">
-                    <div class="panel panel-body panel-primary alert-danger"><h3><font color="#428bca">ยินดีต้อนรับสู่ระบบจัดการ <?php echo $title_web;?></font></h3></div>
+                    <div class="panel panel-body panel-primary alert-danger"><h3><font color="#333333">ยินดีต้อนรับสู่ระบบจัดการ <?php echo $title_web;?></font></h3></div>
                 </div>
                 <!--End Page Header -->
             </div>
@@ -137,12 +137,12 @@ $total_page = ceil($total_record / $perpage);
 
      if($show['Ord_RepairStatus']==0){$status =  '<span class=text-info>แจ้งซ่อม</span>';}
 else if($show['Ord_RepairStatus']==1){$status =  '<span class=text-info>กำลังดำเนินการ</span>';}
-else if($show['Ord_RepairStatus']==2){$status =  '<span class=text-success>รออะไหล่</span>';}
-else if($show['Ord_RepairStatus']==3){$status =  '<span class=text-info>ซ่อมสำเร็จ</span>';}
+else if($show['Ord_RepairStatus']==2){$status =  '<span class=text-info>รออะไหล่</span>';}
+else if($show['Ord_RepairStatus']==3){$status =  '<span class=text-success>ซ่อมสำเร็จ</span>';}
 else if($show['Ord_RepairStatus']==4){$status =  '<span class=text-danger>ซ่อมไม่สำเร็จ</span>';}
 else if($show['Ord_RepairStatus']==5){$status =  '<span class=text-danger>ยกเลิกการซ่อม</span>';}
 else if($show['Ord_RepairStatus']==6){$status =  '<span class=text-success>ชำระเงิน</span>';}
-else if($show['Ord_RepairStatus']==7){$status =  '<span class=text-primary>ส่งมอบให้ลูกค้าเรียบร้อยแล้ว</span>';}
+else if($show['Ord_RepairStatus']==7){$status =  '<span class=text-success>ส่งมอบให้ลูกค้าเรียบร้อยแล้ว</span>';}
 
 ?>
                   <tr>
@@ -155,10 +155,10 @@ else if($show['Ord_RepairStatus']==7){$status =  '<span class=text-primary>ส�
                   <td><div align="center"><?php echo $show['Ord_RepairPerson'];?></div></td>
                   <td><div align="center"><?php echo $status;?></div></td>
                   <td><div align="center">
-                  <a href="print_order.php?id=<?php echo $show['Ord_ID'];?>" target="_blank"><input name="" type="button" class="btn btn-dark" value="พิมพ์ใบรับซ่อม"></a>&nbsp;
+                  <a href="print_order.php?id=<?php echo $show['Ord_ID'];?>&status=localhost/project-nawa/manage_repair_status.php?id=<?php echo $show['Ord_ID'];?>" target="_blank"><input name="" type="button" class="btn btn-dark" value="พิมพ์ใบรับซ่อม"></a>&nbsp;
                   <a href="#order<?php echo $show['Ord_ID'];?>" data-toggle="modal"><input name="" type="button" class="btn btn-warning" value="จัดการสถานะการซ่อม"></a>&nbsp;
                   <a href="manage_repair_edit.php?id=<?php echo $show['Ord_ID'];?>"><input name="" type="button" class="btn btn-primary" value="แก้ไขข้อมูลงานซ่อม"></a>&nbsp;
-                  <a href="#"><input name="" type="button" class="btn btn-info" value="รายละเอียดการซ่อม"></a>&nbsp;
+                  <a href="manage_repair_status.php?id=<?php echo $show['Ord_ID'];?>"><input name="" type="button" class="btn btn-info" value="รายละเอียดการซ่อม"></a>&nbsp;
                   <a href="?admin=delete&id=<?php echo $show['Ord_ID'];?>"><input name="" type="button" class="btn btn-danger" value="ลบข้อมูลงานซ่อม"></a>
                   </div></td>
                   </tr>
