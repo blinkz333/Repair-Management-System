@@ -155,7 +155,7 @@ else if($show['Ord_RepairStatus']==7){$status =  '<span class=text-success>ส�
                   <td><div align="center"><?php echo $show['Ord_RepairPerson'];?></div></td>
                   <td><div align="center"><?php echo $status;?></div></td>
                   <td><div align="center">
-                  <a href="print_order.php?id=<?php echo $show['Ord_ID'];?>&status=localhost/project-nawa/manage_repair_status.php?id=<?php echo $show['Ord_ID'];?>" target="_blank"><input name="" type="button" class="btn btn-dark" value="พิมพ์ใบรับซ่อม"></a>&nbsp;
+                  <a href="print_order.php?id=<?php echo $show['Ord_ID'];?>&status=localhost/project-nawa/manage_repair_status_user.php?id=<?php echo $show['Ord_ID'];?>" target="_blank"><input name="" type="button" class="btn btn-dark" value="พิมพ์ใบรับซ่อม"></a>&nbsp;
                   <a href="#order<?php echo $show['Ord_ID'];?>" data-toggle="modal"><input name="" type="button" class="btn btn-warning" value="จัดการสถานะการซ่อม"></a>&nbsp;
                   <a href="manage_repair_edit.php?id=<?php echo $show['Ord_ID'];?>"><input name="" type="button" class="btn btn-primary" value="แก้ไขข้อมูลงานซ่อม"></a>&nbsp;
                   <a href="manage_repair_status.php?id=<?php echo $show['Ord_ID'];?>"><input name="" type="button" class="btn btn-info" value="รายละเอียดการซ่อม"></a>&nbsp;
