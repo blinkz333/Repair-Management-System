@@ -12,7 +12,7 @@ if($_REQUEST['admin']=='update'){
     Ord_CustomerTel = '$_REQUEST[phone]',Ord_CustomerAddress = '$_REQUEST[address]',Ord_CustomerProvince = '$_REQUEST[province]',
     Ord_CustomerAddressCode = '$_REQUEST[addressCode]',Ord_RepairModel = '$_REQUEST[model]',Ord_RepairModelID = '$_REQUEST[modelId]',
     Ord_RepairDescription = '$detail',Ord_RepairDate = '$_REQUEST[repairDate]',Ord_RepairSuccess = '$_REQUEST[repairSuccess]',
-    Ord_RepairPrice = '$_REQUEST[repairePrice]',Ord_RepairRemark = '$_REQUEST[repaireRemark]',Ord_RepairPerson = '$_REQUEST[repairPerson]' where Ord_ID = '$_REQUEST[id]'")or die (mysqli_error());
+    Ord_RepairPrice = '$_REQUEST[repairePrice]',Ord_RepairRemark = '$_REQUEST[repaireRemark]',Ord_RepairmanID = '$_REQUEST[repairPerson]' where Ord_ID = '$_REQUEST[id]'")or die (mysqli_error());
     
     //function check แก้ไขข้อมูล จะมี alert ขึ้นมา ตามเงื่อนไข
     Chk_Insert($sql,'แก้ไขข้อมูลเรียบร้อย','manage_repair.php');
@@ -121,11 +121,17 @@ if($_REQUEST['admin']=='update'){
                                     </div>
 
                                     <div class="form-group col-lg-12">
-                                    <label>รายละเอียดการซ่อม/ปัญหา</label>
-                                    
-                                    <div class="form-group has-feedback">
-                                    <textarea name="description" required class="form-control css-require" rows="7" placeholder="กรอกรายละเอียดการซ่อม/ปัญหา"><?php echo $show['Ord_RepairDescription'];?></textarea>
+                                        <label>รายละเอียดการซ่อม/ปัญหา</label>
+                                         <div class="form-group has-feedback">
+                                            <textarea name="description" required class="form-control css-require" rows="7" placeholder="กรอกรายละเอียดการซ่อม/ปัญหา"><?php echo $show['Ord_RepairDescription'];?></textarea>
+                                         </div>
                                     </div>
+
+                                    <div class="form-group col-lg-12">
+                                            <label>หมายเหตุ</label>
+                                        <div class="form-group has-feedback">
+                                            <input name="repaireRemark" type="text" required class="form-control css-require" placeholder="กรอกหมายเหตุ" value="<?php echo $show['Ord_RepairDescription'];?>">
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-lg-3">
@@ -141,6 +147,7 @@ if($_REQUEST['admin']=='update'){
                                             <input name="repairSuccess" type="date" required class="form-control css-require" value="<?php echo $show['Ord_RepairSuccess'];?>">
                                         </div>
                                     </div>
+                                   
 
                                     <div class="form-group col-lg-3">
                                             <label>ประเมินราคา</label>
@@ -152,17 +159,24 @@ if($_REQUEST['admin']=='update'){
                                     <div class="form-group col-lg-3">
                                             <label>ช่างที่รับผิดชอบ</label>
                                         <div class="form-group has-feedback">
-                                            <input name="repairPerson" type="text" required class="form-control css-require" placeholder="กรอกชื่อช่างที่รับผิดชอบ" value="<?php echo $show['Ord_RepairPerson'];?>">
-                                        </div>
+                                         <select name="repairPerson" class="form-control">
+                                        <?php 
+									    $sql = $conn->query("select * from repair_man")or die (mysqli_error());
+                                        while ($show= $sql->fetch_assoc()) {
+                                            $value = $show['Rep_ID'];
+                                            $text = $show['Rep_Name'];
+
+                                            echo "<option value='$value' selected>$text</option>";
+                                        }
+									    ?>
+                                        </select>
                                         </div>
                                     </div>
 
-                                    <div class="form-group col-lg-12">
-                                            <label>หมายเหตุ</label>
-                                        <div class="form-group has-feedback">
-                                            <input name="repaireRemark" type="text" required class="form-control css-require" placeholder="กรอกหมายเหตุ" value="<?php echo $show['Ord_RepairRemark'];?>">
-                                        </div>
-                                    </div>
+                                    
+
+
+                                    
 
                                     <div class="clearfix"></div>
                                     <hr>

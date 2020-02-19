@@ -23,7 +23,7 @@ $sql = $conn->query("insert orders set Ord_Number = '$orderNumber',Ord_CustomerN
 Ord_CustomerTel = '$_REQUEST[phone]',Ord_CustomerAddress = '$_REQUEST[address]',Ord_CustomerProvince = '$_REQUEST[province]',
 Ord_CustomerAddressCode = '$_REQUEST[addressCode]',Ord_RepairModel = '$_REQUEST[model]',Ord_RepairModelID = '$_REQUEST[modelId]',
 Ord_RepairDescription = '$detail',Ord_RepairDate = '$_REQUEST[repairDate]',Ord_RepairSuccess = '$_REQUEST[repairSuccess]',
-Ord_RepairPrice = '$_REQUEST[repairePrice]',Ord_RepairRemark = '$_REQUEST[repaireRemark]',Ord_RepairPerson = '$_REQUEST[repairPerson]', Ord_RepairStatus ='0'");
+Ord_RepairPrice = '$_REQUEST[repairePrice]',Ord_RepairRemark = '$_REQUEST[repaireRemark]',Ord_RepairmanID = '$_REQUEST[repairPerson]', Ord_RepairStatus ='0'");
 
 
 //function check เพิ่มข้อมูล จะมี alert ขึ้นมา ตามเงื่อนไข
@@ -71,6 +71,8 @@ Chk_Insert($sql,'เพิ่มข้อมูลเรียบร้อย','
                             <div class="row">
                                 <div class="col-lg-12">
                                     <form name="form1" id="myform1" action="?admin=insert" method="post" enctype="multipart/form-data" onsubmit="return chk_error();">
+
+                                  
 
                                     <div class="form-group col-lg-12">
                                             <label><font size="20">รายละเอียดของลูกค้า</font></label>
@@ -137,6 +139,13 @@ Chk_Insert($sql,'เพิ่มข้อมูลเรียบร้อย','
                                     </div>
                                     </div>
 
+                                    <div class="form-group col-lg-12">
+                                            <label>หมายเหตุ</label>
+                                        <div class="form-group has-feedback">
+                                            <input name="repaireRemark" type="text" required class="form-control css-require" placeholder="กรอกหมายเหตุ">
+                                        </div>
+                                    </div>
+
                                     <div class="form-group col-lg-3">
                                             <label>วันที่รับซ่อม</label>
                                         <div class="form-group has-feedback">
@@ -161,16 +170,21 @@ Chk_Insert($sql,'เพิ่มข้อมูลเรียบร้อย','
                                     <div class="form-group col-lg-3">
                                             <label>ช่างที่รับผิดชอบ</label>
                                         <div class="form-group has-feedback">
-                                            <input name="repairPerson" type="text" required class="form-control css-require" placeholder="กรอกชื่อช่างที่รับผิดชอบ">
+                                        <select name="repairPerson" class="form-control">
+                                        <?php 
+									    $sql = $conn->query("select * from repair_man")or die (mysqli_error());
+                                        while ($show= $sql->fetch_assoc()) {
+                                            $value = $show['Rep_ID'];
+                                            $text = $show['Rep_Name'];
+
+                                            echo "<option value='$value' selected>$text</option>";
+                                        }
+									    ?>
+                                        </select>
                                         </div>
                                     </div>
 
-                                    <div class="form-group col-lg-12">
-                                            <label>หมายเหตุ</label>
-                                        <div class="form-group has-feedback">
-                                            <input name="repaireRemark" type="text" required class="form-control css-require" placeholder="กรอกหมายเหตุ">
-                                        </div>
-                                    </div>
+                                   
 
                                     <div class="clearfix"></div>
                                     <hr>

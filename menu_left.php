@@ -46,14 +46,24 @@ if($_REQUEST['logout']=='chk'){
                            
                         </ul>
                     </li>
-                  
+
                     <li>
+                    <a href="#"><i class="fa fa-wrench fa-fw"></i> ช่างซ่อม<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                       
+                            <li>
+                                <a href="manage_repairman.php"> - ข้อมูลช่างซ่อม</a>
+                            </li>
+                           
+                        </ul>
+                    </li>
+                  
+                    
                     <li>
                         <a href="?logout=chk"><i class="fa fa-sign-out fa-fw"></i> ออกจากระบบ</a>
                     </li>
-
-
-                </ul>
+                        </ul>
+                    
                 <!-- end side-menu -->
             </div>
             <!-- end sidebar-collapse -->

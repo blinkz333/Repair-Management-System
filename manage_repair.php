@@ -101,10 +101,10 @@ if($_REQUEST['admin']=='status'){
 			$start = ($page - 1) * $perpage;
 
 //แสดงข้อมูลตามเงื่อนไข และ มีการแบ่งหน้ารายการ
-$sql = $conn->query("select * from orders order by Ord_ID DESC limit $start,$perpage")or die (mysqli_error());
+$sql = $conn->query("select * from orders inner join repair_man on orders.Ord_RepairmanID = repair_man.Rep_ID order by Ord_ID DESC limit $start,$perpage")or die (mysqli_error());
 
 //หาจำนวน row ทั้งหมด ของ ข้อมูลที่ถูกแสดงเพื่อจะเอาไปทำการแบ่งหน้า
-$sql2 = $conn->query("select * from orders order by Ord_ID DESC")or die (mysqli_error());
+$sql2 = $conn->query("select * from orders inner join repair_man on orders.Ord_RepairmanID = repair_man.Rep_ID order by Ord_ID DESC ")or die (mysqli_error());
 $total_record = $sql2->num_rows;
 $total_page = ceil($total_record / $perpage);
 
@@ -144,6 +144,8 @@ else if($show['Ord_RepairStatus']==5){$status =  '<span class=text-danger>ยก
 else if($show['Ord_RepairStatus']==6){$status =  '<span class=text-success>ชำระเงิน</span>';}
 else if($show['Ord_RepairStatus']==7){$status =  '<span class=text-success>ส่งมอบให้ลูกค้าเรียบร้อยแล้ว</span>';}
 
+
+
 ?>
                   <tr>
                   <td><div align="center"><?php echo $show['Ord_Number'];?></div></td>
@@ -152,7 +154,7 @@ else if($show['Ord_RepairStatus']==7){$status =  '<span class=text-success>ส�
                   <td><div align="center"><?php echo $show['Ord_RepairModel'];?></div></td>
                   <td><div align="center"><?php echo $show['Ord_RepairDate'];?></div></td>
                   <td><div align="center"><?php echo $show['Ord_RepairSuccess'];?></div></td>
-                  <td><div align="center"><?php echo $show['Ord_RepairPerson'];?></div></td>
+                  <td><div align="center"><?php echo $show['Rep_Name'];?></div></td>
                   <td><div align="center"><?php echo $status;?></div></td>
                   <td><div align="center">
                   <a href="print_order.php?id=<?php echo $show['Ord_ID'];?>&status=localhost/project-nawa/manage_repair_status_user.php?id=<?php echo $show['Ord_ID'];?>" target="_blank"><input name="" type="button" class="btn btn-dark" value="พิมพ์ใบรับซ่อม"></a>&nbsp;

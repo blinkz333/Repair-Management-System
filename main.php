@@ -63,7 +63,7 @@ $row = $nowCase->num_rows;
  <?php
  
 //แสดงข้อมูลตามเงื่อนไข
-$sql = $conn->query("select * from orders o order by o.Ord_ID desc");
+$sql = $conn->query("select * from orders inner join repair_man on orders.Ord_RepairmanID = repair_man.Rep_ID order by Ord_ID desc");
 
 
   while ($show = $sql->fetch_assoc()) {
@@ -86,7 +86,7 @@ else if($show['Ord_Status']==7){$status =  '<span class=text-primary>ส่ง�
                   <td class="small"><?php echo $show['Ord_RepairModel'];?></td>
                   <td class="small"><?php echo $show['Ord_RepairDate'];?></td>
                   <td class="small"><?php echo $show['Ord_RepairSuccess'];?></td>
-                  <td class="small"><?php echo $show['Ord_RepairPerson'];?></td>
+                  <td class="small"><?php echo $show['Rep_Name'];?></td>
                   <td class="small"><?php echo $status;?></td>
                   
                                             </tr>
