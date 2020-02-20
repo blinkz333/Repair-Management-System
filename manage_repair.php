@@ -16,7 +16,7 @@ Chk_Delete($sql,'ลบข้อมูลเรียบร้อย');
 if($_REQUEST['admin']=='status'){
 
     //แก้ไขข้อมูลลง table ที่กำหนด โดยให้ชื่อฟิลด์ใน table ใน db = ค่าที่รับมา โดยข้อมูลที่แก้จะเปลี่ยนแปลงตาม id ของ รายการนั้น
-    $sql = $conn->query("update orders set Ord_RepairStatus = '$_REQUEST[modalStatus]',Ord_RepairPerson = '$_REQUEST[modalRepairPerson]',Ord_RepairPrice = '$_REQUEST[modelRepairPrice]' where Ord_ID = '$_REQUEST[id]'")or die (mysqli_error());
+    $sql = $conn->query("update orders set Ord_RepairStatus = '$_REQUEST[modalStatus]',Ord_RepairmanID = '$_REQUEST[modalRepairPerson]',Ord_RepairPrice = '$_REQUEST[modelRepairPrice]' where Ord_ID = '$_REQUEST[id]'")or die (mysqli_error());
     
     //function check แก้ไขข้อมูล จะมี alert ขึ้นมา ตามเงื่อนไข
     Chk_Update($sql,'อัพเดทข้อมูลเรียบร้อย');
@@ -122,10 +122,10 @@ $total_page = ceil($total_record / $perpage);
 			$start = ($page - 1) * $perpage;
 
 //ค้นหาข้อมูลตามเงื่อนไข และ มีการแบ่งหน้ารายการ
-$sql = $conn->query("select * from  orders  where Ord_Number like '%$_REQUEST[txt_search]%' order by Ord_ID desc limit $start,$perpage")or die (mysqli_error());
+$sql = $conn->query("select * from  orders inner join repair_man on orders.Ord_RepairmanID = repair_man.Rep_ID  where Ord_Number like '%$_REQUEST[txt_search]%' order by Ord_ID desc limit $start,$perpage")or die (mysqli_error());
 
 //หาจำนวน row ทั้งหมด ของ ข้อมูลที่ถูกค้นหาเพื่อจะเอาไปทำการแบ่งหน้า
-$sql2 = $conn->query("select * from  orders  where Ord_Number like '%$_REQUEST[txt_search]%' order by Ord_ID desc")or die (mysqli_error());
+$sql2 = $conn->query("select * from  orders inner join repair_man on orders.Ord_RepairmanID = repair_man.Rep_ID  where Ord_Number like '%$_REQUEST[txt_search]%' order by Ord_ID desc")or die (mysqli_error());
 $total_record = $sql2->num_rows;
 $total_page = ceil($total_record / $perpage);
 		}
@@ -144,7 +144,8 @@ else if($show['Ord_RepairStatus']==5){$status =  '<span class=text-danger>ยก
 else if($show['Ord_RepairStatus']==6){$status =  '<span class=text-success>ชำระเงิน</span>';}
 else if($show['Ord_RepairStatus']==7){$status =  '<span class=text-success>ส่งมอบให้ลูกค้าเรียบร้อยแล้ว</span>';}
 
-
+ $value = $show['Rep_ID'];
+$text = $show['Rep_Name'];
 
 ?>
                   <tr>
@@ -191,9 +192,13 @@ else if($show['Ord_RepairStatus']==7){$status =  '<span class=text-success>ส�
                                     <option value="7"<?php if($show2['Ord_Status']==7){echo 'selected';}?>>ส่งมอบให้ลูกค้าเรียบร้อยแล้ว</option>
                                     </select>
                                 </div>
+                                
                                 <div class="form-group">
-                                    <lable>ผู้ปฏิบัติงาน:<lable>
-                                    <input type="text" name="modalRepairPerson" class="form-control" value="<?php echo $show['Ord_RepairPerson'];?>">
+                                    <lable>ชื่อช่าง:<lable>
+                                    <select name="modalRepairPerson" class="form-control">
+                                    <option value='<?php echo $show['Rep_ID'];?>' selected><?php echo $show['Rep_Name'];?></option>
+                                    </select>
+                                   
                                 </div>
                                 <div class="form-group">
                                     <lable>ค่าใช้จ่าย:<lable>
